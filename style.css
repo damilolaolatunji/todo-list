@@ -1,0 +1,170 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Custom Styles */
+
+.container {
+	position: relative;
+	width: 50%;
+	max-width: 50%;
+	height: 400px;
+	margin: 5em auto 0;
+	border: 1px solid #efefef;
+}
+
+/* Panel Area */
+
+.panel {
+	padding: 10px;
+	border-bottom: 1px solid #efefef;
+	background-color: #E7E8EB;
+}
+
+.panel h1 {
+	font-size: 30px;
+	text-align: center;
+}
+
+.panel button {
+	float: right;
+}
+
+.panel input {
+	float: left;
+}
+
+.list {
+	/* position: relative; */
+	max-height: 350px;
+	/* top: 0px; */
+	/* bottom: 50px; */
+	background-color: #3465A4;
+	overflow: auto;
+}
+
+li {
+	position: relative;
+	padding: 10px;
+	list-style-type: none;
+	border-bottom: 1px solid #efefef;
+}
+
+li button {
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	color: #ddd;
+	display: none;
+}
+
+li:hover > button {
+	display: inline;
+}
+
+li.done label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+label {
+	display: inline-block;
+	width: 550px;
+	font-size: 18px;
+	margin-left: 20px;
+	color: #fcfcfc;
+	z-index: 2;
+}
+
+input.text-input {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 550px;
+	margin-left: 20px;
+	color: #333;
+	border: none;
+	z-index: 10;
+	font-size: 18px;
+	/* margin-top: 10px; */
+}
+
+/* input.text-input:active, input.text-input:focus {
+	background-color: #fff;
+	color: #333;
+} */
+
+.entry {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.entry input {
+	padding-left: 10px;
+	width: 96%;
+	height: 30px;
+	float: left;
+}
+
+/* .entry input, .entry button {
+	height: 30px;
+	border: 1px solid #efefef;
+	border-radius: 0;
+} */
+
+.hidden {
+	display: none;
+}

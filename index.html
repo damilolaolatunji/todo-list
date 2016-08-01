@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>To-do List</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="container" id="todo">
+			<div class="panel">	
+			
+			<h1>
+			
+				<input type="checkbox" id="mark-all" v-on:click="selectAll">
+				Todo List 
+				<button v-on:click="clearList">Clear List</button>
+			
+			</h1>
+				
+			</div>
+
+			<div class="list">
+
+				<ul class="list-item">
+
+					<li v-for="task in tasks">
+
+						<input type="checkbox" class="checkbox" v-on:click="uncheck">
+						<input type="text" class="text-input hidden" v-on:keyup.enter="saveTask" v-model="task.text">
+						<label for="checkbox" v-on:dblclick="editTask">{{ task.text }}</label>
+						<button class="delete" v-on:click="removeTask($index)">X</button>
+
+					</li>
+				
+				</ul>
+			
+			</div>
+
+			<div class="entry">
+				
+				<div>
+			
+					<input v-model="newTask" v-on:keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
+				</div>
+			
+			</div>
+	</div>
+
+	<script src="vue.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

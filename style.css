@@ -1,131 +1,114 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
+/* Relevant Resets */
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
+ul, li, label, h1 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
 
 body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+	line-height: 1;
+}
 
 /* Custom Styles */
 
+body {
+	font-family: "Lato", sans-serif;
+}
+
 .container {
-	position: relative;
 	width: 50%;
 	max-width: 50%;
-	height: 400px;
-	margin: 5em auto 0;
+	margin: 1em auto 3em;
 	border: 1px solid #efefef;
 }
 
 /* Panel Area */
 
 .panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	align-content: flex-start;
+	position: relative;
 	padding: 10px;
 	border-bottom: 1px solid #efefef;
 	background-color: #E7E8EB;
 }
 
 .panel h1 {
-	font-size: 30px;
+	color: #333;
+	font-family: "Montserrat", sans-serif;
+	font-size: 40px;
+	font-weight: 900;
 	text-align: center;
 }
 
 .panel button {
-	float: right;
+	color: #555;
+	background-color: #FFFFFF;
+	border: 1px solid #bbb;
+	outline: 0;
+	width: 100px;
+	height: 38px;
+	cursor: pointer;
+	font-size: 14px;
 }
 
 .panel input {
-	float: left;
+	margin-left: 20px;
 }
+
+/* Task  area */
 
 .list {
-	/* position: relative; */
-	max-height: 350px;
-	/* top: 0px; */
-	/* bottom: 50px; */
 	background-color: #3465A4;
-	overflow: auto;
 }
 
-li {
+.list li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 	padding: 10px;
+	min-height: 40px;
 	list-style-type: none;
 	border-bottom: 1px solid #efefef;
 }
 
-li button {
+.list li button {
 	background-color: transparent;
 	border: none;
-	position: absolute;
-	right: 20px;
-	top: 10px;
 	cursor: pointer;
-	width: 20px;
-	height: 20px;
-	margin: 0 auto;
+	width: 30px;
+	height: 30px;
 	color: #ddd;
-	display: none;
+	visibility: hidden;
+	font-size: 20px;
+	font-weight: bold;
 }
 
-li:hover > button {
-	display: inline;
+.list li:hover > button {
+	visibility: visible;
 }
 
-li.done label {
+.list li.done label {
 	color: #d9d9d9;
 	text-decoration: line-through;
 }
 
-label {
+.list label {
 	display: inline-block;
 	width: 550px;
 	font-size: 18px;
+	line-height: 24px;
 	margin-left: 20px;
 	color: #fcfcfc;
 	z-index: 2;
+	overflow: hidden;
 }
 
-input.text-input {
+.list input.text-input {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -136,35 +119,57 @@ input.text-input {
 	border: none;
 	z-index: 10;
 	font-size: 18px;
-	/* margin-top: 10px; */
 }
 
-/* input.text-input:active, input.text-input:focus {
-	background-color: #fff;
-	color: #333;
-} */
+/* Entry input */
 
 .entry {
-	width: 100%;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 	bottom: 0;
 }
 
 .entry input {
+	border: 1px soild #dedede;
 	padding-left: 10px;
-	width: 96%;
-	height: 30px;
-	float: left;
+	width: 100%;
+	height: 35px;
 }
 
-/* .entry input, .entry button {
-	height: 30px;
-	border: 1px solid #efefef;
-	border-radius: 0;
-} */
+/* Instructions and Credit */
+
+.credit {
+	margin: 1em auto 5em;
+	text-align: center;
+	font-size: 13px;
+	line-height: 0.6;
+	color: #999;
+}
+
+.credit a {
+	text-decoration: none;
+	color: #999;
+}
+
+.credit a:hover {
+	text-decoration: underline;
+}
 
 .hidden {
 	display: none;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+	.container {
+		width: 90%;
+		max-width: 90%;
+	}
+
+	.panel h1 {
+		font-size: 30px;
+	}
+
 }

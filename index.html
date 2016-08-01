@@ -5,20 +5,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<title>To-do List</title>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	
 	<div class="container" id="todo">
+			
 			<div class="panel">	
 			
-			<h1>
-			
 				<input type="checkbox" id="mark-all" v-on:click="selectAll">
-				Todo List 
+				<h1>Just Do It</h1>
 				<button v-on:click="clearList">Clear List</button>
-			
-			</h1>
 				
 			</div>
 
@@ -40,13 +39,18 @@
 			</div>
 
 			<div class="entry">
-				
-				<div>
-			
-					<input v-model="newTask" v-on:keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
-				</div>
+
+				<input v-model="newTask" v-on:keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
 			
 			</div>
+
+	</div>
+	
+	<div class="credit">
+			<p>Use the input field at the bottom to add an item (press Enter)</p>
+			<p>Double click on an item to edit it (press Enter to save)</p>
+			<p>Hover on the item & click "X" to delete it</p>
+			<p>Created by <a href="http://ayoisaiah.com">Ayo Isaiah</a> using <a href="http://vuejs.org">Vue.js</a></p>
 	</div>
 
 	<script src="vue.js"></script>

@@ -15,10 +15,10 @@
 			
 			<div class="panel">	
 			
-				<input type="checkbox" id="mark-all" v-on:click="selectAll">
+				<input type="checkbox" id="mark-all" @click="selectAll">
 				<h1>Just Do It</h1>
-				<button v-on:click="clearList">Clear List</button>
-				
+				<button @click="clearList">Clear List</button>
+
 			</div>
 
 			<div class="list">
@@ -27,10 +27,10 @@
 
 					<li v-for="task in tasks">
 
-						<input type="checkbox" class="checkbox" v-on:click="uncheck">
-						<input type="text" class="text-input hidden" v-on:keyup.enter="saveTask" v-model="task.text">
-						<label for="checkbox" v-on:dblclick="editTask">{{ task.text }}</label>
-						<button class="delete" v-on:click="removeTask($index)">X</button>
+						<input type="checkbox" class="checkbox" @click="check">
+						<input type="text" class="text-input hidden" @keyup.enter="saveTask" v-model="task.text" @blur="saveTask">
+						<label for="checkbox" @dblclick="editTask">{{ task.text }}</label>
+						<button class="delete" @click="removeTask($index)">X</button>
 
 					</li>
 				
@@ -40,7 +40,7 @@
 
 			<div class="entry">
 
-				<input v-model="newTask" v-on:keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
+				<input v-model="newTask" @keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
 			
 			</div>
 
@@ -48,8 +48,8 @@
 	
 	<div class="credit">
 			<p>Use the input field at the bottom to add an item (press Enter)</p>
-			<p>Double click on an item to edit it (press Enter to save)</p>
-			<p>Hover on the item & click "X" to delete it</p>
+			<p>Double click on the text to edit it (press Enter to save)</p>
+			<p>Hover on the item and click "X" to delete it</p>
 			<p>Created by <a href="http://ayoisaiah.com">Ayo Isaiah</a> using <a href="http://vuejs.org">Vue.js</a></p>
 	</div>
 

@@ -4,6 +4,7 @@
 	const markAll = document.getElementById("mark-all");
 	const checkboxes = document.getElementsByClassName("checkbox");
 	const li = document.getElementsByTagName("li");
+	var cachedValue;
 
 	new Vue({
 		
@@ -30,18 +31,27 @@
 			},
 
 			removeTask: function (index) {
-					this.tasks.splice(index, 1);
+				this.tasks.splice(index, 1);
 			},
 
 			editTask: function (e) {
 				const input = e.target.previousElementSibling;
 				const value = e.target.innerHTML;
+				cachedValue = value;
 				input.value = value;
 				input.classList.remove("hidden");
+				input.focus();
 			},
 
 			saveTask: function (e) {
 				const input = e.originalTarget;
+				const label = input.nextElementSibling;
+				if (input.value === "") {
+					input.value = cachedValue;
+					label.innerHTML = cachedValue;
+				}
+				label.innerHTML = input.value;
+				input.blur();
 				input.classList.add("hidden");
 			},
 
@@ -59,7 +69,7 @@
 				}
 			},
 
-			uncheck: function (e) {
+			check: function (e) {
 				e.target.parentElement.classList.toggle("done");
 				for (var i = 0; i < checkboxes.length; i++) {
 					

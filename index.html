@@ -15,9 +15,9 @@
 			
 			<div class="panel">	
 			
-				<input type="checkbox" id="mark-all" v-on:click="selectAll">
+				<input type="checkbox" id="mark-all" @click="selectAll" :checked="areAllSelected">
 				<h1>Just Do It</h1>
-				<button v-on:click="clearList">Clear List</button>
+				<button @click="clearList">Clear List</button>
 				
 			</div>
 
@@ -25,12 +25,15 @@
 
 				<ul class="list-item">
 
-					<li v-for="task in tasks">
+					<li v-for="task in tasks" :class="{done: isChecked(task)}">
 
-						<input type="checkbox" class="checkbox" v-on:click="uncheck">
-						<input type="text" class="text-input hidden" v-on:keyup.enter="saveTask" v-model="task.text">
-						<label for="checkbox" v-on:dblclick="editTask">{{ task.text }}</label>
-						<button class="delete" v-on:click="removeTask($index)">X</button>
+						<input type="checkbox" class="checkbox" @click="check" v-model="task.checked">
+						
+						<input type="text" v-if="task === editingTask" v-auto-focus class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.text">
+
+						<label for="checkbox" @dblclick="editTask(task)">{{ task.text }}</label>
+						
+						<button class="delete" @click="removeTask(task)">X</button>
 
 					</li>
 				
@@ -40,7 +43,7 @@
 
 			<div class="entry">
 
-				<input v-model="newTask" v-on:keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
+				<input v-model="newTask" @keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
 			
 			</div>
 

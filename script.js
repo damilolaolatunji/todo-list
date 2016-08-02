@@ -1,9 +1,12 @@
-(function (){
-	"use strict";
+"use strict";
 
-	const markAll = document.getElementById("mark-all");
-	const checkboxes = document.getElementsByClassName("checkbox");
-	const li = document.getElementsByTagName("li");
+	Vue.directive("auto-focus", {
+		bind: function () {
+			Vue.nextTick(function () {
+				this.el.focus();
+			}.bind(this));
+		}
+	});
 
 	new Vue({
 		
@@ -13,65 +16,69 @@
 			newTask: "",
 			tasks: [
 				{
-					text: "This is an example task. Delete or add your own"
+					text: "This is an example task. Delete or add your own",
+					checked: false
 				}
-			]
+			],
+
+			editingTask: {
+
+			}
 		},
 		
+		computed: {
+			areAllSelected: function () {
+				return this.tasks.every(function(task) {
+					return task.checked;
+				}) &&  this.tasks.length > 0;
+			},
+		},
+
 		methods: {
 
 			addTask: function () {
 				var task = this.newTask.trim();
 				if (task) {
-					this.tasks.push({text: task});
+					this.tasks.push({text: task, checked: false});
 					this.newTask = "";
-					markAll.checked = false;
 				}
 			},
 
-			removeTask: function (index) {
-					this.tasks.splice(index, 1);
+			removeTask: function (task) {
+				this.tasks.$remove(task);
 			},
 
-			editTask: function (e) {
-				const input = e.target.previousElementSibling;
-				const value = e.target.innerHTML;
-				input.value = value;
-				input.classList.remove("hidden");
+			editTask: function (task) {
+				this.editingTask = task;
 			},
 
-			saveTask: function (e) {
-				const input = e.originalTarget;
-				input.classList.add("hidden");
+			endEditing: function (task) {
+				this.editingTask = {};
+				if (task.text === ""){
+					this.removeTask(task);
+				}
 			},
 
 			clearList: function () {
 				this.tasks = [
 
 				];
-				markAll.checked = false;
 			},
 
-			selectAll: function () {
-				for (var i = 0; i < checkboxes.length; i++) {
-					checkboxes[i].checked = markAll.checked;
-					markAll.checked ? li[i].classList.add("done") : li[i].classList.remove("done");
+			selectAll: function (task) {
+				var targetValue = this.areAllSelected ? false : true;
+				for (var i = 0; i < this.tasks.length; i++) {
+					this.tasks[i].checked = targetValue;
 				}
 			},
 
-			uncheck: function (e) {
-				e.target.parentElement.classList.toggle("done");
-				for (var i = 0; i < checkboxes.length; i++) {
-					
-					if (checkboxes[i].checked === true) {
-						markAll.checked = true;
-					} else {
-						markAll.checked = false;
-						break;
-					}
-				}
+			check: function (task) {
+				task.checked = true;
+			},
+
+			isChecked: function (task) {
+				return task.checked;
 			}
 
 		}
 	});
-})();

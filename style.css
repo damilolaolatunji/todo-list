@@ -56,7 +56,7 @@ body {
 }
 
 .panel input {
-	margin-left: 20px;
+	margin-left: 18px;
 }
 
 /* Task  area */
@@ -70,7 +70,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	padding: 10px;
+	padding: 0 10px;
 	min-height: 40px;
 	list-style-type: none;
 	border-bottom: 1px solid #efefef;
@@ -106,6 +106,7 @@ body {
 	color: #fcfcfc;
 	z-index: 2;
 	overflow: hidden;
+	padding: 20px 0;
 }
 
 .list input.text-input {
@@ -115,10 +116,10 @@ body {
 	height: 100%;
 	width: 550px;
 	margin-left: 20px;
-	color: #333;
+	color: #555;
 	border: none;
 	z-index: 10;
-	font-size: 18px;
+	font-size: 22px;
 }
 
 /* Entry input */

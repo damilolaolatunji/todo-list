@@ -1,7 +1,5 @@
 "use strict";
 
-<<<<<<< HEAD
-=======
 	Vue.directive("auto-focus", {
 		bind: function () {
 			Vue.nextTick(function () {
@@ -9,7 +7,6 @@
 			}.bind(this));
 		}
 	});
->>>>>>> dev
 
 	new Vue({
 		
@@ -47,8 +44,6 @@
 				}
 			},
 
-<<<<<<< HEAD
-=======
 			removeTask: function (task) {
 				this.tasks.$remove(task);
 			},
@@ -62,7 +57,7 @@
 				if (task.text === ""){
 					this.removeTask(task);
 				}
->>>>>>> dev
+				
 			},
 
 			clearList: function () {
@@ -78,15 +73,12 @@
 				}
 			},
 
-<<<<<<< HEAD
-=======
 			check: function (task) {
 				task.checked = true;
 			},
 
 			isChecked: function (task) {
 				return task.checked;
->>>>>>> dev
 			}
 
 		}

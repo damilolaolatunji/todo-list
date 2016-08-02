@@ -14,18 +14,11 @@
 	<div class="container" id="todo">
 			
 			<div class="panel">	
-			
-<<<<<<< HEAD
-				<input type="checkbox" id="mark-all" @click="selectAll">
-				<h1>Just Do It</h1>
-				<button @click="clearList">Clear List</button>
 
-=======
 				<input type="checkbox" id="mark-all" @click="selectAll" :checked="areAllSelected">
 				<h1>Just Do It</h1>
 				<button @click="clearList">Clear List</button>
-				
->>>>>>> dev
+
 			</div>
 
 			<div class="list">
@@ -34,12 +27,6 @@
 
 					<li v-for="task in tasks" :class="{done: isChecked(task)}">
 
-<<<<<<< HEAD
-						<input type="checkbox" class="checkbox" @click="check">
-						<input type="text" class="text-input hidden" @keyup.enter="saveTask" v-model="task.text" @blur="saveTask">
-						<label for="checkbox" @dblclick="editTask">{{ task.text }}</label>
-						<button class="delete" @click="removeTask($index)">X</button>
-=======
 						<input type="checkbox" class="checkbox" @click="check" v-model="task.checked">
 						
 						<input type="text" v-if="task === editingTask" v-auto-focus class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.text">
@@ -47,7 +34,6 @@
 						<label for="checkbox" @dblclick="editTask(task)">{{ task.text }}</label>
 						
 						<button class="delete" @click="removeTask(task)">X</button>
->>>>>>> dev
 
 					</li>
 				

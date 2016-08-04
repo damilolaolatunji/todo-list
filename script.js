@@ -54,7 +54,7 @@
 
 			endEditing: function (task) {
 				this.editingTask = {};
-				if (task.text === ""){
+				if (task.text.trim() === ""){
 					this.removeTask(task);
 				}
 				

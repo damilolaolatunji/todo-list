@@ -5,23 +5,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<title>To-do List</title>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	
 	<div class="container" id="todo">
 			
-			<div class="panel">	
+			<section class="panel">	
 
 				<input type="checkbox" id="mark-all" @click="selectAll" :checked="areAllSelected">
-				<h1>Just Do It</h1>
+				<input v-model="newTask" @keyup.enter="addTask" placeholder="What do you need to do?" autofocus class="text-input">
 				<button @click="clearList">Clear List</button>
 
-			</div>
+			</section>
 
-			<div class="list">
+			<section class="list">
 
 				<ul class="list-item">
 
@@ -31,7 +31,7 @@
 						
 						<input type="text" v-if="task === editingTask" v-auto-focus class="text-input" @keyup.enter="endEditing(task)" @blur="endEditing(task)" v-model="task.text">
 
-						<label for="checkbox" @dblclick="editTask(task)">{{ task.text }}</label>
+						<label for="checkbox" v-if="task !== editingTask" @dblclick="editTask(task)">{{ task.text }}</label>
 						
 						<button class="delete" @click="removeTask(task)">X</button>
 
@@ -39,13 +39,7 @@
 				
 				</ul>
 			
-			</div>
-
-			<div class="entry">
-
-				<input v-model="newTask" @keyup.enter="addTask" placeholder="What do you need to do?" autofocus>
-			
-			</div>
+			</section>
 
 	</div>
 	

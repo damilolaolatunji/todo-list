@@ -15,8 +15,7 @@ body {
 }
 
 .container {
-	width: 50%;
-	max-width: 50%;
+	width: 70%;
 	margin: 1em auto 3em;
 	border: 1px solid #efefef;
 }
@@ -117,8 +116,13 @@ button {
 		max-width: 90%;
 	}
 
-	.panel h1 {
-		font-size: 30px;
+	.text-input, .list label {
+		width: 60%;
+		font-size: 14px;
 	}
-
+	
+	button {
+		width: 50px;
+		height: 50px;
+	}
 }
